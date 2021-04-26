@@ -1,0 +1,12 @@
+create table sale
+(
+id int,
+name varchar(50),
+quantity int,
+price int,
+saledate date
+);
+
+insert into sales values(1,'doll',2,350,TO_DATE('15-04-2020','DD-MM-YYYY'));
+insert into sales values(2,'dress',3,1500,TO_DATE('12-06-2020','DD-MM-YYYY'));
+insert into sales values(3,'powerbank',1,850,TO_DATE('15-02-2020','DD-MM-YYYY'));
