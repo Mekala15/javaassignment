@@ -1,0 +1,12 @@
+create table stock
+(
+id int,
+name varchar(50),
+quantity int,
+price int,
+brand varchar(50)
+);
+
+insert into stock values(1,'Mobile',4,20000,'Redmi');
+insert into stock values(2,'Laptop',5,35000,'Lenova');
+insert into stock values(3,'Earphone',3,500,'Samsung');
