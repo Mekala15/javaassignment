@@ -36,3 +36,5 @@ delete Employee;
 rollback;
 
 select EmpFname,to_char(empDOB,'dd-mm-yyyy') from employee;
+
+select substr(EmpFName,1,1)||'.'||substr(EmpMName,1,1)||'.'||EmpLastName as Name from Employee;
