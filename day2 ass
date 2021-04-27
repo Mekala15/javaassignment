@@ -1,0 +1,38 @@
+create table Employee
+(
+EmpFName varchar(50),
+EmpMName varchar(50),
+EmpLastName varchar(50),
+EmpAge int check(EmpAge between 1 and 50),
+EmpCity varchar(50) check(EmpCity like 'b%'),
+EmpDesignation varchar(50) check(EmpDesignation like '%manager%'),
+EmpId varchar(5) not null primary key check(EmpId like '_____'),
+empDOB date
+);
+
+insert into Employee values('mekala','sms','ramasamy',21,'bangalore','manager','emp01',to_date('15-04-2000','dd-mm-yyyy'));
+
+insert into Employee values('thamarai','sms','selvan',25,'bangalore','manager','emp02',to_date('15-02-1996','dd-mm-yyyy'));
+
+insert into Employee values('sowmya','sri','mothe',23,'bombai','sales manager','emp03',to_date('22-08-2000','dd-mm-yyyy'));
+
+insert into Employee values('dhamu','sms','dharan',29,'buvanesh','ass manager','emp04',to_date('13-04-2001','dd-mm-yyyy'));
+
+insert into Employee values('sugu','sri','kumar',25,'bangalore','manager','emp05',to_date('12-06-1996','dd-mm-yyyy'));
+
+
+update Employee set EmpAge='22' where EmpFname='dhamu';
+
+commit;
+
+delete Employee where EmpId='emp03';
+
+rollback;
+
+commit;
+
+delete Employee;
+
+rollback;
+
+select EmpFname,to_char(empDOB,'dd-mm-yyyy') from employee;
