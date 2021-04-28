@@ -1,0 +1,47 @@
+SQL> create table details
+  2  (
+  3  day char(20) ,
+  4  sess int,
+  5  faculty char(50),
+  6  sem int,
+  7  room varchar(10),
+  8  subject char(30),
+  9  unique(day,sess,faculty),
+ 10  unique(day,sess,sem),
+ 11  unique(day,sess,room),
+ 12  unique(day,sess,faculty,sem,room)
+ 13  );
+
+Table created.
+
+SQL> insert into details values('mon',1,'John',7,'r1','Java');
+
+1 row created.
+
+SQL> insert into details values('mon',1,'John',5,'r2','testing');
+insert into details values('mon',1,'John',5,'r2','testing')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DXCTECH.SYS_C007027) violated
+
+
+SQL> insert into details values('mon',1,'cena',7,'r3','dbms');
+insert into details values('mon',1,'cena',7,'r3','dbms')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DXCTECH.SYS_C007028) violated
+
+
+SQL> insert into details values('mon',1,'rock',4,'r1','ds');
+insert into details values('mon',1,'rock',4,'r1','ds')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DXCTECH.SYS_C007029) violated
+
+SQL> insert into details values('tue',1,'john',7,'r1','java');
+
+1 row created.
+
+SQL> insert into details values('mon',2,'john',7,'r1','java');
+
+1 row created.
