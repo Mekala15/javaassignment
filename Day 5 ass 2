@@ -70,8 +70,10 @@ public class Task {
 	}
 	public static void main(String[] args) {
 		Task m=new Task();
-		String str1="Hello",str2="HELLO";
+		String str1="Hello",str2="HELLO",str3="Hi";
 		System.out.println(m.isEqual(str1,str2));
+		System.out.println(m.isEqual(str1,str3));
+
 	}
 
 	}
