@@ -1,0 +1,67 @@
+1. create a function to   check 2 given chars
+are equal or not irrespective of the case
+
+-------------------------------------------
+
+public class Task{
+	boolean isEqual(char c1 , char c2){
+		if(c1>='A'&&c1<='Z')
+			c1=(char)(c1+32);
+		if(c2>='A'&&c2<='Z')
+			c2=(char)(c2+32);
+		if(c1==c2)
+			return true;
+		else
+			return false;
+	}
+	public static void main(String[] args) {
+		Task m=new Task();
+		char a='a',b='A',c='d';
+		System.out.println(m.isEqual(a,b));
+		System.out.println(m.isEqual(c,d));
+	}
+
+}
+
+
+
+create a function to   check 2 given Strings
+are equal or not irrespective of the case
+
+-------------------------------------------
+
+
+public class Task {
+	boolean isEqual(String str1 , String str2)
+	{
+		int flag=0;
+    String s1=str1.toUpperCase()
+    String s2=str2.toUpperCase();
+		char[] arr1= s1.toCharArray();
+		char[] arr2=s2.toCharArray();
+		if(s1.length()==s2.length())
+		{
+			
+			for(int i=0;i<arr1.length;i++)
+			{	
+				if(arr1[i]!=arr2[i])
+				{
+					flag=0;
+					break;
+				}
+				else
+					flag=1;
+			}
+		}
+		if(flag==1)
+			return true;
+		else
+			return false;	
+	}
+	public static void main(String[] args) {
+		Task m=new Task();
+		String str1="Hello",str2="HELLO";
+		System.out.println(m.isEqual(str1,str2));
+	}
+
+	}
