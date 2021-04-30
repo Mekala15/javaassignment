@@ -1,3 +1,0 @@
-select to_char(sysdate,'dd/mm/yy day') from dual;
-
-select sysdate+10 from dual;
