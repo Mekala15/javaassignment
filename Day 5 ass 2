@@ -41,13 +41,13 @@ public class Task {
 		{
 			for(int i=0;i<arr1.length;i++)
 			{
-				if(ar1[i]>='A'&&ar1[i]<='Z')
+				if(arr1[i]>='A'&&arr1[i]<='Z')
 				{
-					arr1[i]=(char)(ar1[i]+32);
+					arr1[i]=(char)(arr1[i]+32);
 			        }
-				if(ar2[i]>='A'&&ar2[i]<='Z')
+				if(arr2[i]>='A'&&arr2[i]<='Z')
 				{
-					arr2[i]=(char)(ar2[i]+32);
+					arr2[i]=(char)(arr2[i]+32);
 				}
 			}
 		{
