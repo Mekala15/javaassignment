@@ -1,5 +1,0 @@
-select to_char(sysdate,'dd-mm-yyyy hh:mi') from dual;
-
-select to_char(sysdate,'dd-mm-yyyy') from dual;
-
-select to_char(sysdate,'dd/mm/yyyy') from dual;
