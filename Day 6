@@ -1,0 +1,96 @@
+Qsn 1
+----------------------------------
+public class Task{
+ int sum(int...x)
+ {
+     int sum=0;
+     int min=x[0],max=0,c=0,ct=0;
+        for(int i:x)
+        {
+            if(i>max)
+              max=i;
+        
+            if(i<min)
+              min=i;
+        
+            if(i%2!=0)
+             c++;
+        
+            if(i%3==0)
+             ct++;
+        }
+        System.out.println("Max: "+max+"\n Min: "+min+"\nOdd:"+c+"\n divby3: "+ct);
+        
+     for(int a:x)
+     {
+         sum+=a;
+     }
+     return sum;
+ }
+     public static void main(String []args){
+        Task m=new Task();
+        int[] arr={10,20,30,40,51,100};
+        int res=m.sum(arr);
+        System.out.println("Sum: " +res);
+        
+        
+     }
+}
+
+-----------------------------------------------------------------------
+
+Qsn 2
+
+---------------------------------
+
+public class Rev {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str="Hello World";
+		char[] arr1=str.toCharArray();
+		for(int i=arr1.length-1;i>=0;i--)
+		{
+			System.out.print(arr1[i]);
+		}
+
+	}
+
+}
+---------------------------------------------------------------------------
+
+Qsn 3
+
+------------------------------------
+
+public class Position {
+    public static void main(String[] args) {
+	  String str="HeLloWorld";
+	  int j=0;
+	  char[] arr= str.toCharArray();
+	  for(int i=arr.length-1;i>=0;i--)	
+	  {
+		if(arr[j]>='a'&&arr[j]<'z')
+		{
+			if(arr[i]>='A'&&arr[i]<='Z')
+			
+				System.out.print((char)(arr[i]+32));
+        
+			else
+			
+				System.out.print(arr[i]);
+		}
+		else if(arr[j]>='A'&&arr[j]<'Z')
+		{
+			if(arr[i]>='a'&&arr[i]<='z')
+			
+				System.out.print((char)(arr[i]-32));
+        
+			else
+			
+				System.out.print(arr[i]);
+		}		
+		j=j+1;
+}
+}
+}
