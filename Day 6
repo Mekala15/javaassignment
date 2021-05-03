@@ -66,8 +66,9 @@ Qsn 3
 public class Position {
     public static void main(String[] args) {
 	  String str="HeLloWorld";
-	  int j=0;
 	  char[] arr= str.toCharArray();
+	  for(int j=0;j<arr.length;)
+	  {
 	  for(int i=arr.length-1;i>=0;i--)	
 	  {
 		if(arr[j]>='a'&&arr[j]<'z')
@@ -91,6 +92,7 @@ public class Position {
 				System.out.print(arr[i]);
 		}		
 		j=j+1;
+		}
 }
 }
 }
