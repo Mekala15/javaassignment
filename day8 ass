@@ -1,0 +1,97 @@
+CarTask.java
+
+package mytask;
+
+public class CarTask {
+	private String name;
+	private String color;
+	private String brand;
+	private String srName;
+	//private String ;
+		public String getName() {
+	return name;
+	}
+	public void setName(String name) {
+	this.name = name;
+	}
+	public String getColor() {
+	return color;
+	}
+	public void setColor(String color) {
+	this.color = color;
+	}
+	public String getBrand() {
+	return brand;
+	}
+	public void setBrand(String brand) {
+	this.brand = brand;
+	}
+	public String getSrName() {
+		return srName;
+	}
+	public void setSrName(String srName) {
+		this.srName = srName;}
+	public CarTask(String name, String color, String brand,String srName) {
+	super();
+	this.name = name;
+	this.color = color;
+	this.brand = brand;
+	this.srName = srName;
+	//this.role = role;
+	}
+
+	public CarTask() {
+
+	}
+
+	@Override
+	public String toString() {
+	return "Car Info :[name=" + name + " color=" + color + ", brand=" + brand + ", srname=" +srName+ "]";
+	}
+
+}
+
+
+ShowRoom.java
+
+package mytask;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Scanner;
+public class ShowRoom {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		CarTask car1=new CarTask("BMW","Blue","AAA","Tom");
+		CarTask car2=new CarTask("AUDI","Black","BBB","Jerry");
+		ArrayList<CarTask> MyCars=new ArrayList<>();
+		MyCars.add(car1);
+		MyCars.add(car2);
+		HashSet<CarTask> newSn1=new HashSet<CarTask>(MyCars);
+		CarTask car3=new CarTask("BMW","Black","XXX","Dora");
+		CarTask car4=new CarTask("Toyoto","Red","CCC","SSS");
+		CarTask car5=new CarTask("Maruti Suzuki","Yellow","YYY","MMM");
+		ArrayList<CarTask> My1Cars=new ArrayList<>();
+		My1Cars.add(car3);
+		My1Cars.add(car4);
+		My1Cars.add(car4);
+		HashSet<CarTask> newSn2=new HashSet<CarTask>(My1Cars);
+		Map<String , HashSet<CarTask>> showroom=new HashMap<String, HashSet<CarTask>>();
+		showroom.put("Sn1",newSn1);
+		showroom.put("Sn2",newSn2);
+		System.out.println("Enter Showroom name");
+		Scanner sc=new Scanner(System.in);
+		String showroom1=sc.nextLine();
+		HashSet<CarTask> Showroom1=showroom.get(showroom);
+		for(CarTask car:Showroom1)
+		{
+			System.out.println(car);
+		}
+
+
+	}
+
+}
