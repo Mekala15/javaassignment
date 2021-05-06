@@ -1,0 +1,140 @@
+Player Task in jdbc
+
+-------------------------
+
+package com.myproj.dbutil;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DbConn {
+		public static Connection dbConnect()
+		{
+		try{
+		Class.forName("oracle.jdbc.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","dxctech","pass");
+		return con;
+		}
+		catch (Exception e) {
+		e.printStackTrace();
+		return null;
+		}
+		}
+
+}
+
+------------------------------
+
+package com.myproj.model;
+
+public class Player {
+	String playerName;
+	String playerRole;
+	String playerStyle;
+	String playerTeam;
+	
+	public String getPlayerName() {
+		return playerName;
+	}
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+	public String getPlayerRole() {
+		return playerRole;
+	}
+	public void setPlayerRole(String playerRole) {
+		this.playerRole = playerRole;
+	}
+	public String getPlayerStyle() {
+		return playerStyle;
+	}
+	public void setPlayerStyle(String playerStyle) {
+		this.playerStyle = playerStyle;
+	}
+	public String getPlayerTeam() {
+		return playerTeam;
+	}
+	public void setPlayerTeam(String playerTeam) {
+		this.playerTeam = playerTeam;
+	}
+	public Player(String playerName, String playerRole, String playerStyle, String playerTeam) {
+		super();
+		this.playerName = playerName;
+		this.playerRole = playerRole;
+		this.playerStyle = playerStyle;
+		this.playerTeam = playerTeam;
+	}
+	@Override
+	public String toString() {
+		return "Player [playerName=" + playerName + ", playerRole=" + playerRole + ", playerStyle=" + playerStyle
+				+ ", playerTeam=" + playerTeam + "]";
+	}
+	
+
+}
+
+------------------------------
+
+package com.myproj.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import com.myproj.dbutil.DbConn;
+import com.myproj.model.Player;
+
+public class PlayerDao {
+	public String savePlayer(Player player)
+	{
+
+	try {
+	String sql="insert into player values(?,?,?,?)";
+
+	Connection con= DbConn.dbConnect();
+	PreparedStatement stat=con.prepareStatement(sql);
+
+	stat.setString(1, player.getPlayerName());
+	stat.setString(2, player.getPlayerRole());
+	stat.setString(3, player.getPlayerStyle());
+	stat.setString(4, player.getPlayerTeam());
+	int res= stat.executeUpdate();
+
+	if(res>0)
+	return "recs inserted";
+
+	}
+	catch(Exception e)
+	{
+
+	e.printStackTrace();
+	}
+
+
+	return "cannot insert recs";
+	}
+
+
+}
+
+-----------------------------
+
+package com.myproj.service;
+
+import com.myproj.dao.PlayerDao;
+import com.myproj.model.Player;
+
+public class PlayerService {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Player player=new Player("Jadeja","Bowler","Righthand","CSK");
+
+		PlayerDao dao=new PlayerDao();
+		String res= dao.savePlayer(player);
+
+		System.out.println(res);
+
+	}
+
+}
+
